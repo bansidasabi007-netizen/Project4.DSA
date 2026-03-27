@@ -2,18 +2,10 @@
 using namespace std;
 
 class stack
-{
-protected:
-    int arr[10];
-    int size;
-    int top;
+{   
 
 public:
-    stack(int x)
-    {
-        size = x;
-        top = -1;
-    };
+
     virtual void push() = 0;
     virtual void pop() = 0;
     virtual void display() = 0;
@@ -24,8 +16,16 @@ public:
 
 class MainStack : public stack
 {
+private:
+ int arr[10];
+    int size;
+    int top;
 public:
-    MainStack(int x) : stack(x) {}
+        MainStack(int x)
+    {
+        size = x;
+        top = -1;
+    };
 
     bool isEmpty()
     {
@@ -94,7 +94,7 @@ public:
 
 int main()
 {
-    stack *b = new MainStack(10);
+   MainStack b(10);
 
     int choice;
 
@@ -116,26 +116,26 @@ int main()
         switch (choice)
         {
         case 1:
-            b->push();
+            b.push();
             break;
 
         case 2:
-            b->pop();
+            b.pop();
             break;
         case 3:
-            b->topelement();
+            b.topelement();
             break;
 
         case 4:
-            b->display();
+            b.display();
             break;
 
         case 5:
-            b->isEmpty();
+            b.isEmpty();
             break;
 
         case 6:
-            b->isFull();
+            b.isFull();
             break;
 
         case 7:
